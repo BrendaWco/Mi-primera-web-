@@ -3,41 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Relatadores</title>
+    <style>
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                opacity: 0.5;
+            }
+            21%, 23% {
+                opacity: 0.1;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #1e1e1e;
+            animation: flicker 2s infinite;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            max-height: 50px;
+            margin-right: 1rem;
+        }
+
+        header .logo span {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 1rem;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ff6600;
+        }
+
+        .search-bar input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .hero {
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            margin-bottom: 2rem;
+            animation: flicker 3s infinite;
+        }
+
+        #hero1 {
+            background-image: url('image1.png');
+        }
+
+        #hero2 {
+            background-image: url('image2.png');
+        }
+
+        #hero3 {
+            background-image: url('image3.png');
+        }
+
+        .hero-content {
+            animation: float 5s infinite;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            margin: 0.5rem 0;
+        }
+
+        .buttons {
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 5px;
+            margin: 0.5rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .play {
+            background-color: #ff6600;
+        }
+
+        .trailer {
+            background-color: #666;
+        }
+
+        .btn:hover {
+            background-color: #333;
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #1e1e1e;
+            text-align: center;
+            padding: 1rem 2rem;
+        }
+
+        .social-media a {
+            margin: 0 0.5rem;
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Bienvenido a Mi Página Web</h1>
+        <div class="logo">
+            <img src="logo.png" alt="Relatadores Logo">
+            <span>Relatadores</span>
+        </div>
         <nav>
             <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#acerca">Acerca de</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Category</a></li>
+                <li><a href="#">Series</a></li>
+                <li><a href="#">Movies</a></li>
             </ul>
         </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search your episode...">
+        </div>
     </header>
-    <main>
-        <section id="inicio">
-            <h2>Inicio</h2>
-            <p>Contenido de la página de inicio.</p>
-        </section>
-        <section id="acerca">
-            <h2>Acerca de</h2>
-            <p>Información sobre ti o tu negocio.</p>
-        </section>
-        <section id="servicios">
-            <h2>Servicios</h2>
-            <p>Descripción de los servicios ofrecidos.</p>
-        </section>
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <p>Información de contacto.</p>
-        </section>
-    </main>
+    
+    <section class="hero" id="hero1">
+        <div class="hero-content">
+            <h2>7 Datos Perturbadores Históricos</h2>
+            <p>1ra Parte</p>
+            <p>2023 | 1 min | Historia</p>
+            <p>Descubre hechos oscuros de la historia que te dejarán sin palabras.</p>
+            <div class="buttons">
+                <a href="https://www.youtube.com/shorts/ggJCKhs680I" class="btn play" target="_blank">Play</a>
+                <a href="#" class="btn trailer">Watch Trailer</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero" id="hero2">
+        <div class="hero-content">
+            <h2>SKIN WALKER: HUNTING</h2>
+            <p>The Last Hunt!</p>
+            <p>2023 | 1h 06min | Psycho Terror</p>
+            <p>Aliquam et odio ut mauris dapibus dignissim. Ut nec nunc non lacus interdum.</p>
+            <div class="buttons">
+                <a href="https://www.youtube.com/shorts/tG2ZcNKbzjw" class="btn play" target="_blank">Play</a>
+                <a href="#" class="btn trailer">Watch Trailer</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero" id="hero3">
+        <div class="hero-content">
+            <h2>SEE YOU AT THE GRAVE</h2>
+            <p>A Life to Die For!</p>
+            <p>2023 | 2h 5min | Comedy</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec.</p>
+            <div class="buttons">
+                <a href="https://www.youtube.com/shorts/BQ0_1JFHo2Y" class="btn play" target="_blank">Play</a>
+                <a href="#" class="btn trailer">Watch Trailer</a>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2024 Mi Página Web</p>
+        <p>&copy; 2023 Relatadores. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
     </footer>
 </body>
 </html>
+
+
+
