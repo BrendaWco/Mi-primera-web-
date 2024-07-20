@@ -5,30 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatadores</title>
     <style>
-        @keyframes flicker {
-            0%, 18%, 22%, 25%, 53%, 57%, 100% {
-                opacity: 1;
-            }
-            20%, 24%, 55% {
-                opacity: 0.5;
-            }
-            21%, 23% {
-                opacity: 0.1;
-            }
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-
+        /* Estilos básicos */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -162,6 +139,54 @@
             margin: 0 0.5rem;
             text-decoration: none;
             color: #fff;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            header nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content p {
+                font-size: 0.875rem;
+            }
+
+            .btn {
+                padding: 0.5rem;
+                font-size: 0.875rem;
+            }
         }
     </style>
 </head>
