@@ -1,16 +1,75 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatadores</title>
+    <title>Hunter Entertainment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet"> <!-- Tipografía de terror -->
     <style>
-        /* Estilos básicos */
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                opacity: 0.5;
+            }
+            21%, 23% {
+                opacity: 0.1;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: #fff;
+            }
+            50% {
+                color: #e74c3c;
+            }
+            100% {
+                color: #fff;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
+            background-color: #000;
             color: #fff;
         }
 
@@ -19,30 +78,19 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            background-color: #1e1e1e;
+            background-color: #000;
             animation: flicker 2s infinite;
         }
 
-        header .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        header .logo img {
+        header img {
             max-height: 50px;
-            margin-right: 1rem;
-        }
-
-        header .logo span {
-            font-size: 1.5rem;
-            font-weight: bold;
         }
 
         header nav ul {
             list-style: none;
+            display: flex;
             margin: 0;
             padding: 0;
-            display: flex;
         }
 
         header nav ul li {
@@ -53,221 +101,265 @@
             text-decoration: none;
             color: #fff;
             font-weight: bold;
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.3s;
         }
 
         header nav ul li a:hover {
-            color: #ff6600;
-        }
-
-        .search-bar input {
-            padding: 0.5rem;
-            border: none;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
+            color: #e74c3c;
+            transform: scale(1.1);
         }
 
         .hero {
+            background-image: url('hero-bg.jpg');
             background-size: cover;
             background-position: center;
-            padding: 4rem 2rem;
+            padding: 8rem 2rem;
             text-align: center;
             position: relative;
-            margin-bottom: 2rem;
             animation: flicker 3s infinite;
+            color: #fff;
         }
 
-        #hero1 {
-            background-image: url('image1.png');
+        .hero h1 {
+            font-size: 4rem;
+            color: #e74c3c;
+            margin: 0;
+            animation: colorChange 3s infinite, slideIn 1s ease-out;
+            font-family: 'Nosifer', cursive; /* Tipografía de terror */
         }
 
-        #hero2 {
-            background-image: url('image2.png');
-        }
-
-        #hero3 {
-            background-image: url('image3.png');
-        }
-
-        .hero-content {
+        .hero p {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 1rem 0;
             animation: float 5s infinite;
         }
 
-        .hero-content h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero-content p {
-            margin: 0.5rem 0;
-        }
-
-        .buttons {
-            margin-top: 1rem;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
+        .hero .button {
+            padding: 1rem 2rem;
+            background-color: #e74c3c;
             color: #fff;
+            text-decoration: none;
+            font-weight: bold;
             border-radius: 5px;
-            margin: 0.5rem;
             transition: background-color 0.3s, transform 0.3s;
         }
 
-        .play {
-            background-color: #ff6600;
+        .hero .button:hover {
+            background-color: #333;
+            transform: scale(1.1);
         }
 
-        .trailer {
-            background-color: #666;
+        .section {
+            padding: 4rem 2rem;
+            animation: zoomIn 1s ease-out;
         }
 
-        .btn:hover {
+        .section h2 {
+            font-size: 2.5rem;
+            color: #e74c3c;
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: colorChange 3s infinite;
+            font-family: 'Nosifer', cursive; /* Tipografía de terror */
+        }
+
+        .about, .featured-products, .video-gallery, .happy-customers, .newsletter {
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            animation: float 5s infinite;
+        }
+
+        .products, .videos, .testimonials {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .product, .video, .testimonial {
+            background-color: #1c1c1c;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s, background-color 0.3s;
+            animation: zoomIn 1s ease-out;
+        }
+
+        .product:hover, .video:hover, .testimonial:hover {
+            transform: scale(1.05);
+            background-color: #333;
+        }
+
+        .product img, .video img {
+            width: 100%;
+            border-radius: 5px;
+            animation: flicker 3s infinite;
+        }
+
+        .product p, .video p, .testimonial p {
+            color: #bbb;
+            animation: colorChange 3s infinite;
+        }
+
+        .newsletter input {
+            padding: 1rem;
+            width: 300px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 1rem;
+            background-color: #333;
+            color: #fff;
+            animation: flicker 3s infinite;
+        }
+
+        .newsletter button {
+            padding: 1rem 2rem;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .newsletter button:hover {
             background-color: #333;
             transform: scale(1.1);
         }
 
         footer {
-            background-color: #1e1e1e;
+            padding: 2rem;
+            background-color: #000;
             text-align: center;
-            padding: 1rem 2rem;
+            animation: flicker 3s infinite;
         }
 
-        .social-media a {
-            margin: 0 0.5rem;
-            text-decoration: none;
+        footer a {
             color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s;
         }
 
-        /* Media Queries */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1rem;
-            }
-
-            header nav ul {
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-            }
-
-            header nav ul li {
-                margin: 0.5rem 0;
-                width: 100%;
-                text-align: left;
-            }
-
-            header nav ul li a {
-                display: block;
-                width: 100%;
-                padding: 0.5rem 0;
-            }
-
-            .hero {
-                padding: 2rem 1rem;
-            }
-
-            .hero-content h2 {
-                font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .btn {
-                padding: 0.5rem 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h2 {
-                font-size: 1.5rem;
-            }
-
-            .hero-content p {
-                font-size: 0.875rem;
-            }
-
-            .btn {
-                padding: 0.5rem;
-                font-size: 0.875rem;
-            }
+        footer a:hover {
+            color: #e74c3c;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="logo.png" alt="Relatadores Logo">
-            <span>Relatadores</span>
-        </div>
+        <img src="logo.png" alt="Hunter Entertainment Logo">
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Category</a></li>
-                <li><a href="#">Series</a></li>
-                <li><a href="#">Movies</a></li>
+                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
+                <li><a href="videos.html">Galería y Videos</a></li>
             </ul>
         </nav>
-        <div class="search-bar">
-            <input type="text" placeholder="Search your episode...">
+        <div>
+            <a href="#">Iniciar Sesión</a>
+            <a href="#">Llamar: 778-375-2345</a>
         </div>
     </header>
-    
-    <section class="hero" id="hero1">
-        <div class="hero-content">
-            <h2>7 Datos Perturbadores Históricos</h2>
-            <p>1ra Parte</p>
-            <p>2023 | 1 min | Historia</p>
-            <p>Descubre hechos oscuros de la historia que te dejarán sin palabras.</p>
-            <div class="buttons">
-                <a href="https://www.youtube.com/shorts/ggJCKhs680I" class="btn play" target="_blank">Play</a>
-                <a href="#" class="btn trailer">Watch Trailer</a>
-            </div>
-        </div>
+
+    <section class="hero">
+        <h1>Relatadores</h1>
+        <p>Aquí, cada historia es un viaje en el tiempo</p>
+        <a href="sobre-nosotros.html" class="button">Ver Más</a>
     </section>
 
-    <section class="hero" id="hero2">
-        <div class="hero-content">
-            <h2>SKIN WALKER: HUNTING</h2>
-            <p>The Last Hunt!</p>
-            <p>2023 | 1h 06min | Psycho Terror</p>
-            <p>Aliquam et odio ut mauris dapibus dignissim. Ut nec nunc non lacus interdum.</p>
-            <div class="buttons">
-                <a href="https://www.youtube.com/shorts/tG2ZcNKbzjw" class="btn play" target="_blank">Play</a>
-                <a href="#" class="btn trailer">Watch Trailer</a>
-            </div>
-        </div>
+    <section class="about section">
+        <h2>Sobre Nosotros</h2>
+        <p>Relatadores es tu portal a los eventos más oscuros y fascinantes de la historia. Con nuestros videos, exploramos los hechos más perturbadores y misteriosos que han marcado el curso de la humanidad. Únete a nosotros en este viaje a través del tiempo y descubre historias que te dejarán sin aliento.</p>
+        <a href="sobre-nosotros.html" class="button">Leer Más</a>
     </section>
 
-    <section class="hero" id="hero3">
-        <div class="hero-content">
-            <h2>SEE YOU AT THE GRAVE</h2>
-            <p>A Life to Die For!</p>
-            <p>2023 | 2h 5min | Comedy</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec.</p>
-            <div class="buttons">
-                <a href="https://www.youtube.com/shorts/BQ0_1JFHo2Y" class="btn play" target="_blank">Play</a>
-                <a href="#" class="btn trailer">Watch Trailer</a>
-            </div>
-        </div>
-    </section>
+    <section class="featured-products section">
+        <h2>Productos</h2>
+        <div class="products">
+            <div class="product">
+                <img src="product1.jpg" alt="Product 1">
+                <p>Nombre del Producto</p>
+                <p>$50</p>
+                <a href="#" class="button">Añ
+adir al Carrito</a>
+</div>
+<div class="product">
+<img src="product2.jpg" alt="Product 2">
+<p>Nombre del Producto</p>
+<p>$35</p>
+<a href="#" class="button">Añadir al Carrito</a>
+</div>
+<div class="product">
+<img src="product3.jpg" alt="Product 3">
+<p>Nombre del Producto</p>
+<p>$60</p>
+<a href="#" class="button">Añadir al Carrito</a>
+</div>
+</div>
+</section>
 
-    <footer>
-        <p>&copy; 2023 Relatadores. All rights reserved.</p>
-        <div class="social-media">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="#">Instagram</a>
+php
+Copiar código
+<section class="video-gallery section">
+    <h2>Galería y Videos</h2>
+    <div class="videos">
+        <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ggJCKhs680I" frameborder="0" allowfullscreen></iframe>
+            <p>Video 1: 7 Datos Perturbadores Históricos</p>
         </div>
-    </footer>
+        <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/tG2ZcNKbzjw" frameborder="0" allowfullscreen></iframe>
+            <p>Video 2: Título del Video</p>
+        </div>
+        <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/BQ0_1JFHo2Y" frameborder="0" allowfullscreen></iframe>
+            <p>Video 3: Título del Video</p>
+        </div>
+    </div>
+</section>
+
+<section class="happy-customers section">
+    <h2>Clientes sorprendidos</h2>
+    <div class="testimonials">
+        <div class="testimonial">
+            <p>“Una experiencia inolvidable. Cada video es una lección de historia con un toque inquietante.”</p>
+            <p>- Ana Pérez</p>
+        </div>
+        <div class="testimonial">
+            <p>“Las historias de Relatadores siempre me mantienen al borde del asiento. ¡Altamente recomendado!”</p>
+            <p>- Luis Gómez</p>
+        </div>
+        <div class="testimonial">
+            <p>“Cada video es un viaje al pasado que no olvidaré fácilmente. ¡Fantástico contenido!”</p>
+            <p>- Carla Martínez</p>
+        </div>
+    </div>
+</section>
+
+<section class="newsletter section">
+    <h2>Suscríbete</h2>
+    <input type="email" placeholder="Introduce tu email">
+    <button>Suscribirse</button>
+</section>
+
+<footer>
+    <p>&copy; 2023 Hunter Entertainment. Todos los derechos reservados.</p>
+    <div>
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+    </div>
+</footer>
 </body>
 </html>
-
-        
-
